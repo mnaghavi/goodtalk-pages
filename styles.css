@@ -441,9 +441,9 @@ body[data-theme="dark"] .mode-pill {
 #communication-coach,
 #features,
 #pricing,
-#mode-coach,
 #mode-aria,
-#mode-touch-up {
+#mode-private-coach,
+#mode-talks {
   scroll-margin-top: var(--sticky-offset);
 }
 
@@ -508,6 +508,31 @@ body[data-theme="dark"] .mode-pill {
   margin-top: 28px;
 }
 
+.hero-offers {
+  display: grid;
+  gap: 8px;
+  margin-top: 20px;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.hero-offers strong {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.hero-offers strong::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(145deg, var(--teal), var(--accent));
+  box-shadow: 0 0 0 5px var(--accent-mist);
+}
+
 .hero-point,
 .mini-chip {
   display: inline-flex;
@@ -539,6 +564,44 @@ body[data-theme="dark"] .mode-pill {
   position: relative;
   width: min(100%, 460px);
   padding: 10px 0 42px;
+}
+
+.hero-phone-switcher {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 0.58;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.hero-phone-switcher:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 8px;
+  border-radius: 36px;
+}
+
+.hero-phone-switcher .hero-phone-card {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  transition: transform 0.48s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
+  transform: translate(62px, 18px) scale(0.93);
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+.hero-phone-switcher .hero-phone-card.is-active {
+  z-index: 2;
+  transform: translate(-24px, 0) scale(1);
+  opacity: 1;
+}
+
+.hero-phone-switcher .hero-phone-card .iphone-shell {
+  width: min(86%, 360px);
 }
 
 .iphone-shot {
@@ -1024,7 +1087,7 @@ body[data-theme="dark"] .mode-card-touch {
   box-shadow: var(--shadow-lg);
 }
 
-#mode-coach {
+#mode-private-coach {
   background:
     radial-gradient(circle at top right, rgba(111, 100, 200, 0.12), transparent 28%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.74));
@@ -1036,13 +1099,13 @@ body[data-theme="dark"] .mode-card-touch {
     linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.74));
 }
 
-#mode-touch-up {
+#mode-talks {
   background:
     radial-gradient(circle at top right, rgba(74, 103, 214, 0.12), transparent 28%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.74));
 }
 
-body[data-theme="dark"] #mode-coach {
+body[data-theme="dark"] #mode-private-coach {
   background:
     radial-gradient(circle at top right, rgba(111, 100, 200, 0.18), transparent 28%),
     linear-gradient(180deg, rgba(18, 24, 35, 0.94), rgba(18, 24, 35, 0.82));
@@ -1054,7 +1117,7 @@ body[data-theme="dark"] #mode-aria {
     linear-gradient(180deg, rgba(18, 24, 35, 0.94), rgba(18, 24, 35, 0.82));
 }
 
-body[data-theme="dark"] #mode-touch-up {
+body[data-theme="dark"] #mode-talks {
   background:
     radial-gradient(circle at top right, rgba(74, 103, 214, 0.2), transparent 28%),
     linear-gradient(180deg, rgba(18, 24, 35, 0.94), rgba(18, 24, 35, 0.82));
@@ -1207,6 +1270,53 @@ body[data-theme="dark"] .example-carousel-button:focus-visible {
   display: flex;
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
+}
+
+.device-carousel-viewport {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+
+.device-carousel-track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.device-slide {
+  flex: 0 0 100%;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  min-width: 0;
+}
+
+.device-slide .iphone-shell,
+.story-shot .iphone-shell {
+  box-shadow: none;
+}
+
+.device-carousel-viewport.is-clickable {
+  cursor: pointer;
+}
+
+.device-carousel-viewport.is-clickable:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 5px;
+  border-radius: 34px;
+}
+
+.mode-visual-static,
+.story-shot {
+  width: 100%;
+}
+
+.story-shot {
+  display: grid;
+  justify-items: center;
 }
 
 .example-card,
@@ -2050,6 +2160,14 @@ body[data-theme="dark"] .nav-link.is-active {
     width: 100%;
   }
 
+  .hero-phone-switcher .hero-phone-card {
+    transform: translate(30px, 14px) scale(0.93);
+  }
+
+  .hero-phone-switcher .hero-phone-card.is-active {
+    transform: translate(-12px, 0) scale(1);
+  }
+
   .hero-signal-card {
     width: 100%;
   }
@@ -2230,6 +2348,11 @@ body[data-theme="dark"] .nav-link.is-active {
   }
 
   .example-carousel-track {
+    transition: none;
+  }
+
+  .device-carousel-track,
+  .hero-phone-switcher .hero-phone-card {
     transition: none;
   }
 }

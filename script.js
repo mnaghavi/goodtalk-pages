@@ -131,9 +131,11 @@ if (!prefersReducedMotion && "IntersectionObserver" in window) {
 const carousels = Array.from(document.querySelectorAll("[data-carousel]"));
 carousels.forEach((carousel) => {
   const track = carousel.querySelector(".example-carousel-track");
+  const deviceTrack = carousel.querySelector(".device-carousel-track");
   const slides = Array.from(carousel.querySelectorAll(".example-slide"));
-  const prevButton = carousel.querySelector("[data-carousel-prev]");
-  const nextButton = carousel.querySelector("[data-carousel-next]");
+  const prevButtons = Array.from(carousel.querySelectorAll("[data-carousel-prev]"));
+  const nextButtons = Array.from(carousel.querySelectorAll("[data-carousel-next]"));
+  const deviceViewport = carousel.querySelector(".device-carousel-viewport.is-clickable");
   const dots = Array.from(carousel.querySelectorAll("[data-carousel-dot]"));
 
   if (!track || !slides.length) {
@@ -144,6 +146,9 @@ carousels.forEach((carousel) => {
 
   const updateCarousel = () => {
     track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    if (deviceTrack) {
+      deviceTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
 
     dots.forEach((dot, index) => {
       dot.classList.toggle("is-active", index === currentIndex);
@@ -151,14 +156,31 @@ carousels.forEach((carousel) => {
     });
   };
 
-  prevButton?.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateCarousel();
+  prevButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateCarousel();
+    });
   });
 
-  nextButton?.addEventListener("click", () => {
+  nextButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateCarousel();
+    });
+  });
+
+  const showNextSlide = () => {
     currentIndex = (currentIndex + 1) % slides.length;
     updateCarousel();
+  };
+
+  deviceViewport?.addEventListener("click", showNextSlide);
+  deviceViewport?.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      showNextSlide();
+    }
   });
 
   dots.forEach((dot, index) => {
@@ -170,6 +192,24 @@ carousels.forEach((carousel) => {
 
   updateCarousel();
 });
+
+const heroSwitcher = document.querySelector("[data-hero-switcher]");
+if (heroSwitcher) {
+  const heroScreens = Array.from(heroSwitcher.querySelectorAll("[data-hero-screen]"));
+  const heroButton = heroSwitcher.querySelector(".hero-phone-switcher");
+  let activeHeroScreen = 0;
+
+  heroButton?.addEventListener("click", () => {
+    activeHeroScreen = (activeHeroScreen + 1) % heroScreens.length;
+    heroScreens.forEach((screen, index) => {
+      screen.classList.toggle("is-active", index === activeHeroScreen);
+    });
+    heroButton.setAttribute(
+      "aria-label",
+      activeHeroScreen === 0 ? "Show guided conversations screen" : "Show hard conversations screen"
+    );
+  });
+}
 
 const page = document.body.dataset.page;
 
