@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reddit Authorization Callback | GoodTalk</title>
+  <meta
+    name="description"
+    content="Reddit Ads authorization callback for GoodTalk."
+  />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#f5f7fb" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0d1118" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" type="image/png" href="/assets/app-icon.png" />
+  <link rel="apple-touch-icon" href="/assets/app-icon.png" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body data-page="reddit-callback">
+  <main class="site-shell site-shell-narrow">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="GoodTalk home">
+        <span class="brand-mark">
+          <img class="brand-icon" src="/assets/goodtalk-logo.png" alt="" />
+        </span>
+        <span class="brand-copy">
+          <span class="brand-title">GoodTalk</span>
+          <span class="brand-subtitle">Say It Right the First Time!</span>
+        </span>
+      </a>
+
+      <div class="topbar-actions">
+        <a class="button button-secondary" href="/">Home</a>
+      </div>
+    </header>
+
+    <section class="page-hero reddit-callback-hero">
+      <span class="section-kicker">Reddit Ads OAuth</span>
+      <h1 id="callback-title">Checking authorization result.</h1>
+      <p id="callback-message">
+        Reading the authorization response from this URL. Nothing is sent, stored, or shared by this page.
+      </p>
+    </section>
+
+    <section class="section section-shell oauth-card" aria-live="polite">
+      <div id="callback-result">
+        <p class="oauth-muted">Waiting for authorization details.</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-brand">
+        <strong>GoodTalk</strong>
+        <span>Reddit authorization callback.</span>
+        <span>© 2026 GoodTalk. All rights reserved.</span>
+      </div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/support.html">Support</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get("code");
+      const state = params.get("state");
+      const error = params.get("error");
+      const errorDescription = params.get("error_description");
+
+      const title = document.getElementById("callback-title");
+      const message = document.getElementById("callback-message");
+      const result = document.getElementById("callback-result");
+
+      const makeRow = (label, value) => {
+        if (!value) return "";
+        return `
+          <div class="oauth-detail-row">
+            <span>${label}</span>
+            <code>${escapeHtml(value)}</code>
+          </div>
+        `;
+      };
+
+      const copyCode = async () => {
+        const button = document.getElementById("copy-code-button");
+        if (!code || !navigator.clipboard || !button) return;
+
+        try {
+          await navigator.clipboard.writeText(code);
+          button.textContent = "Copied";
+        } catch {
+          button.textContent = "Copy failed";
+        }
+      };
+
+      if (error) {
+        title.textContent = "Authorization error";
+        message.textContent = "Reddit returned an error to this callback URL.";
+        result.innerHTML = `
+          <div class="oauth-status oauth-status-error">Error received</div>
+          ${makeRow("Error", error)}
+          ${makeRow("Details", errorDescription)}
+          ${makeRow("State", state)}
+          <p class="oauth-muted">No information has been sent or stored by this page.</p>
+        `;
+        return;
+      }
+
+      if (code) {
+        title.textContent = "Authorization code received";
+        message.textContent = "Copy this code into the tool or workflow that asked you to authorize Reddit Ads.";
+        result.innerHTML = `
+          <div class="oauth-status oauth-status-success">Authorization code received</div>
+          <div class="oauth-copy-block">
+            <pre><code>${escapeHtml(code)}</code></pre>
+            <button class="button button-primary" type="button" id="copy-code-button">Copy code</button>
+          </div>
+          ${makeRow("State", state)}
+          <p class="oauth-muted">This page only reads the code from the URL. It does not send, store, or log it.</p>
+        `;
+        document.getElementById("copy-code-button")?.addEventListener("click", copyCode);
+        return;
+      }
+
+      title.textContent = "No authorization code found";
+      message.textContent = "This callback page did not receive a Reddit authorization code or error.";
+      result.innerHTML = `
+        <div class="oauth-status">No code found</div>
+        ${makeRow("State", state)}
+        <p class="oauth-muted">Try starting the Reddit authorization flow again if you expected a code here.</p>
+      `;
+    })();
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+  </script>
+</body>
+</html>
