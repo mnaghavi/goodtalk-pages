@@ -1058,6 +1058,10 @@ body[data-theme="dark"] .hero-signal-card {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(31, 136, 167, 0.08));
 }
 
+.mode-card-private-aria {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(111, 100, 200, 0.08));
+}
+
 .mode-card-touch {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(74, 103, 214, 0.08));
 }
@@ -1068,6 +1072,10 @@ body[data-theme="dark"] .mode-card-coach {
 
 body[data-theme="dark"] .mode-card-aria {
   background: linear-gradient(180deg, rgba(22, 28, 40, 0.92), rgba(27, 107, 131, 0.18));
+}
+
+body[data-theme="dark"] .mode-card-private-aria {
+  background: linear-gradient(180deg, rgba(22, 28, 40, 0.92), rgba(111, 100, 200, 0.18));
 }
 
 body[data-theme="dark"] .mode-card-touch {
@@ -1093,6 +1101,12 @@ body[data-theme="dark"] .mode-card-touch {
     linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.74));
 }
 
+#mode-private-aria {
+  background:
+    radial-gradient(circle at top right, rgba(111, 100, 200, 0.14), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.74));
+}
+
 #mode-aria {
   background:
     radial-gradient(circle at top right, rgba(31, 136, 167, 0.14), transparent 28%),
@@ -1108,6 +1122,12 @@ body[data-theme="dark"] .mode-card-touch {
 body[data-theme="dark"] #mode-private-coach {
   background:
     radial-gradient(circle at top right, rgba(111, 100, 200, 0.18), transparent 28%),
+    linear-gradient(180deg, rgba(18, 24, 35, 0.94), rgba(18, 24, 35, 0.82));
+}
+
+body[data-theme="dark"] #mode-private-aria {
+  background:
+    radial-gradient(circle at top right, rgba(111, 100, 200, 0.22), transparent 28%),
     linear-gradient(180deg, rgba(18, 24, 35, 0.94), rgba(18, 24, 35, 0.82));
 }
 
@@ -1159,6 +1179,44 @@ body[data-theme="dark"] #mode-talks {
 
 .feature-list strong {
   color: var(--text);
+}
+
+.private-aria-card {
+  display: grid;
+  gap: 20px;
+  padding: 28px;
+  border: 1px solid rgba(111, 100, 200, 0.18);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: var(--shadow-md);
+}
+
+body[data-theme="dark"] .private-aria-card {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.private-aria-modes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.private-aria-modes span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: rgba(111, 100, 200, 0.1);
+  color: var(--purple);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.private-aria-card p {
+  margin: 0;
+  color: var(--text-soft);
+  line-height: 1.7;
 }
 
 .example-showcase {
