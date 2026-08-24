@@ -1,3 +1,12 @@
+# OpenAI uses OAI-AdsBot to validate ChatGPT Ads landing pages.
+User-agent: OAI-AdsBot
+Allow: /
+
+# Recommended by OpenAI for public web content discovery.
+User-agent: OAI-SearchBot
+Allow: /
+
+# Keep the rest of the public site crawlable.
 User-agent: *
 Allow: /
 
