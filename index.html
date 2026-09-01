@@ -64,10 +64,11 @@
           "description": "GoodTalk is a relationship communication app with private message coaching, 1-on-1 support from Aria, consent-based Aria support in shared conversations, and focused topic conversations.",
           "image": "https://good-talk.app/assets/app-icon.png",
           "screenshot": [
-            "https://good-talk.app/assets/hero-hard-talk.png",
-            "https://good-talk.app/assets/aria-jealousy.png",
-            "https://good-talk.app/assets/private-coach-uncomfortable-feeling.png",
-            "https://good-talk.app/assets/talks-topics.png"
+            "https://good-talk.app/assets/app-store-hero.webp",
+            "https://good-talk.app/assets/app-store-private-coach.webp",
+            "https://good-talk.app/assets/app-store-aria-mediator.webp",
+            "https://good-talk.app/assets/app-store-voice.webp",
+            "https://good-talk.app/assets/app-store-talks.webp"
           ],
           "publisher": {
             "@id": "https://good-talk.app/#organization"
@@ -115,6 +116,7 @@
           <a class="nav-link" href="#modes">How it helps</a>
           <a class="nav-link" href="#features">Features</a>
           <a class="nav-link" href="#pricing">Pricing</a>
+          <a class="nav-link" href="company/index.html">Our Studio</a>
           <a class="nav-link" href="privacy.html">Privacy</a>
           <a class="nav-link" href="support.html">Support</a>
         </nav>
@@ -157,34 +159,16 @@
           <div class="hero-device-stage" data-hero-switcher>
             <button class="hero-phone-switcher" type="button" aria-label="Show the next GoodTalk screen">
               <figure class="iphone-shot hero-shot hero-phone-card is-active" data-hero-screen>
-                <div class="iphone-shell">
-                  <div class="iphone-island" aria-hidden="true"></div>
-                  <div class="iphone-screen">
-                    <img src="assets/hero-hard-talk.png" alt="GoodTalk introduction showing support for difficult conversations." />
-                  </div>
-                </div>
+                <img class="app-store-poster" src="assets/app-store-hero.webp" alt="GoodTalk helps couples say the hard thing without starting a fight." />
               </figure>
               <figure class="iphone-shot hero-shot hero-phone-card" data-hero-screen>
-                <div class="iphone-shell">
-                  <div class="iphone-island" aria-hidden="true"></div>
-                  <div class="iphone-screen">
-                    <img src="assets/hero-guided-conversations.png" alt="GoodTalk introduction showing guided conversations between partners." />
-                  </div>
-                </div>
+                <img class="app-store-poster" src="assets/app-store-private-coach.webp" alt="GoodTalk Private Coach helping draft a difficult message before it is sent." />
+              </figure>
+              <figure class="iphone-shot hero-shot hero-phone-card" data-hero-screen>
+                <img class="app-store-poster" src="assets/app-store-repair.webp" alt="GoodTalk helps turn the same argument into a different, more constructive ending." />
               </figure>
             </button>
 
-            <div class="hero-signal-card">
-              <div class="hero-signal-copy">
-                <strong>Tap the phones to explore</strong>
-                <span>Private help for you. Aria in the room when you both want it.</span>
-              </div>
-              <div class="hero-signal-pills">
-                <a href="#mode-private-aria">1-on-1 Aria</a>
-                <a href="#mode-aria">Aria in the room</a>
-                <a href="#mode-private-coach">Private Coach</a>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -205,6 +189,8 @@
         <a class="mode-pill" href="#mode-private-aria" data-mode-link="mode-private-aria"><span>01</span><strong>1-on-1 with Aria</strong></a>
         <a class="mode-pill" href="#mode-aria" data-mode-link="mode-aria"><span>02</span><strong>Aria in the room</strong></a>
         <a class="mode-pill" href="#mode-private-coach" data-mode-link="mode-private-coach"><span>03</span><strong>Private Coach</strong></a>
+        <a class="mode-pill" href="#mode-talks" data-mode-link="mode-talks"><span>04</span><strong>Talks</strong></a>
+        <a class="mode-pill" href="#mode-voice" data-mode-link="mode-voice"><span>05</span><strong>Voice</strong></a>
       </div>
 
       <div class="mode-card-grid">
@@ -226,7 +212,7 @@
       </div>
     </section>
 
-    <section class="mode-detail reveal" id="mode-private-aria" data-mode-section="mode-private-aria">
+    <section class="mode-detail mode-detail-reverse reveal" id="mode-private-aria" data-mode-section="mode-private-aria">
       <div class="mode-copy">
         <span class="section-kicker">1-on-1 with Aria · Private to you</span>
         <h2>Talk it through before you decide what to do.</h2>
@@ -242,17 +228,9 @@
         </ul>
       </div>
       <div class="mode-visual mode-visual-static">
-        <div class="private-aria-card">
-          <span class="section-kicker">Choose what you need</span>
-          <div class="private-aria-modes" aria-label="1-on-1 Aria modes">
-            <span>Coach</span>
-            <span>Dating Coach</span>
-            <span>Role-play</span>
-            <span>Practice a reply</span>
-            <span>GoodTalk Help</span>
-          </div>
-          <p>One private conversation that can keep the useful context you choose.</p>
-        </div>
+        <figure class="app-store-shot story-shot">
+          <img src="assets/app-store-practice-mode.webp" alt="GoodTalk Practice Mode helping someone read between the lines and prepare a thoughtful reply." />
+        </figure>
       </div>
     </section>
 
@@ -282,6 +260,11 @@
           <div class="example-carousel-viewport">
             <div class="example-carousel-track">
               <article class="example-card example-slide example-card-aria">
+                <span class="example-badge">A neutral voice</span><h3>Make room for both sides</h3>
+                <p class="example-context">When a conversation starts pulling in two directions, Aria reflects what each person is trying to say without taking sides.</p>
+                <div class="example-note example-note-answer">A calmer third voice helps the real concern become easier to hear and respond to.</div>
+              </article>
+              <article class="example-card example-slide example-card-aria">
                 <span class="example-badge">Consent first</span><h3>Invited, never silently added</h3>
                 <p class="example-context">One partner can ask Aria to join, but she starts speaking only after everyone agrees.</p>
                 <div class="example-note example-note-answer">A clear invitation keeps AI support intentional and visible to both people.</div>
@@ -308,12 +291,14 @@
             <button class="example-carousel-dot" type="button" data-carousel-dot="1" aria-label="Show Aria story 2"></button>
             <button class="example-carousel-dot" type="button" data-carousel-dot="2" aria-label="Show Aria story 3"></button>
             <button class="example-carousel-dot" type="button" data-carousel-dot="3" aria-label="Show Aria story 4"></button>
+            <button class="example-carousel-dot" type="button" data-carousel-dot="4" aria-label="Show Aria story 5"></button>
           </div>
         </div>
       </div>
 
       <div class="mode-visual device-carousel-viewport is-clickable" role="button" tabindex="0" aria-label="Show the next Aria story and screenshot">
         <div class="device-carousel-track">
+          <figure class="app-store-shot device-slide"><img src="assets/app-store-aria-mediator.webp" alt="Aria acting as a neutral voice in a shared conversation between two partners." /></figure>
           <figure class="iphone-shot device-slide"><div class="iphone-shell"><div class="iphone-screen"><img src="assets/aria-invitation.png" alt="A consent prompt inviting both people to add Aria to a shared conversation." /></div></div></figure>
           <figure class="iphone-shot device-slide"><div class="iphone-shell"><div class="iphone-screen"><img src="assets/aria-jealousy.png" alt="Aria helping partners discuss discomfort and boundaries involving an ex." /></div></div></figure>
           <figure class="iphone-shot device-slide"><div class="iphone-shell"><div class="iphone-screen"><img src="assets/aria-family.png" alt="Aria helping partners work through a tense family interaction." /></div></div></figure>
@@ -322,7 +307,7 @@
       </div>
     </section>
 
-    <section class="mode-detail reveal" id="mode-private-coach" data-mode-section="mode-private-coach" data-carousel>
+    <section class="mode-detail mode-detail-reverse reveal" id="mode-private-coach" data-mode-section="mode-private-coach" data-carousel>
       <div class="mode-copy">
         <span class="section-kicker">Private Coach · Only you can see</span>
         <h2>Find the words before you send.</h2>
@@ -347,6 +332,11 @@
           <div class="example-carousel-viewport">
             <div class="example-carousel-track">
               <article class="example-card example-slide example-card-coach">
+                <span class="example-badge">Before you send</span><h3>Draft the hard message in private</h3>
+                <p class="example-context">Start with the honest version, then shape it into something clear, grounded, and easier for your partner to receive.</p>
+                <div class="example-note">Nothing is sent automatically. You decide what to keep, change, or share.</div>
+              </article>
+              <article class="example-card example-slide example-card-coach">
                 <span class="example-badge">Vulnerable feelings</span><h3>Be honest without sounding controlling</h3>
                 <p class="example-context">Explain the uneasy feeling underneath your first reaction, then turn it into a calm request to talk.</p>
                 <div class="example-note">Private Coach keeps the concern real while making room for trust and a later conversation.</div>
@@ -367,12 +357,14 @@
             <button class="example-carousel-dot is-active" type="button" data-carousel-dot="0" aria-label="Show Private Coach story 1"></button>
             <button class="example-carousel-dot" type="button" data-carousel-dot="1" aria-label="Show Private Coach story 2"></button>
             <button class="example-carousel-dot" type="button" data-carousel-dot="2" aria-label="Show Private Coach story 3"></button>
+            <button class="example-carousel-dot" type="button" data-carousel-dot="3" aria-label="Show Private Coach story 4"></button>
           </div>
         </div>
       </div>
 
       <div class="mode-visual device-carousel-viewport is-clickable" role="button" tabindex="0" aria-label="Show the next Private Coach story and screenshot">
         <div class="device-carousel-track">
+          <figure class="app-store-shot device-slide"><img src="assets/app-store-private-coach.webp" alt="Private Coach helping draft a difficult message before it is sent." /></figure>
           <figure class="iphone-shot device-slide"><div class="iphone-shell"><div class="iphone-screen"><img src="assets/private-coach-uncomfortable-feeling.png" alt="Private Coach helping turn an uncomfortable feeling into a thoughtful message." /></div></div></figure>
           <figure class="iphone-shot device-slide"><div class="iphone-shell"><div class="iphone-screen"><img src="assets/private-coach-no-worries.png" alt="Private Coach helping draft a responsible reply to a frustrated message." /></div></div></figure>
           <figure class="iphone-shot device-slide"><div class="iphone-shell"><div class="iphone-screen"><img src="assets/private-coach-translation.png" alt="Private Coach translating an emotionally nuanced message between languages." /></div></div></figure>
@@ -395,7 +387,26 @@
         </ul>
       </div>
       <div class="mode-visual mode-visual-static">
-        <figure class="iphone-shot story-shot"><div class="iphone-shell"><div class="iphone-screen"><img src="assets/talks-topics.png" alt="GoodTalk showing separate topic-based conversations for a relationship." /></div></div></figure>
+        <figure class="app-store-shot story-shot"><img src="assets/app-store-talks.webp" alt="GoodTalk Talks keeping money, apologies, plans, and other important topics in focused spaces." /></figure>
+      </div>
+    </section>
+
+    <section class="mode-detail mode-detail-reverse reveal" id="mode-voice" data-mode-section="mode-voice">
+      <div class="mode-copy">
+        <span class="section-kicker">Voice-to-text · Speak naturally</span>
+        <h2>Speak freely. Shape the message later.</h2>
+        <p>
+          Record what you want to say and GoodTalk turns it into an editable draft. It is a faster way to get the whole thought out before deciding what to send.
+        </p>
+        <ul class="feature-list">
+          <li>Speak in your natural voice instead of composing every sentence</li>
+          <li>Review and edit the transcript before it becomes a message</li>
+          <li>Use Private Coach to make the draft clearer, warmer, or less defensive</li>
+          <li>Nothing sends until you choose to send it</li>
+        </ul>
+      </div>
+      <div class="mode-visual mode-visual-static">
+        <figure class="app-store-shot story-shot"><img src="assets/app-store-voice.webp" alt="GoodTalk turning a spoken message into an editable voice-to-text draft." /></figure>
       </div>
     </section>
 
@@ -425,20 +436,13 @@
 
       <div class="feature-showcase">
         <div class="feature-showcase-copy">
-          <span class="section-kicker">Built around conversation</span>
-          <h3>Talk naturally. Bring in support when it helps.</h3>
+          <span class="section-kicker">Private by design</span>
+          <h3>What you draft stays yours.</h3>
           <p>
-            Message in real time, keep important topics organized, and choose private coaching or Aria in the room. You decide what gets sent.
+            Use Private Coach before you send, invite Aria only with everyone's consent, and keep control of every suggested reply. GoodTalk never sends an AI draft for you.
           </p>
         </div>
-        <figure class="iphone-shot iphone-shot-compact">
-          <div class="iphone-shell">
-            <div class="iphone-island" aria-hidden="true"></div>
-            <div class="iphone-screen">
-              <img src="assets/talks-topics.png" alt="GoodTalk topic-based Talks with separate spaces for important relationship conversations." />
-            </div>
-          </div>
-        </figure>
+        <figure class="app-store-shot app-store-shot-compact"><img src="assets/app-store-privacy.webp" alt="GoodTalk privacy features for private drafting, consent-based Aria support, and user-controlled sending." /></figure>
       </div>
 
       <div class="category-grid">
@@ -598,8 +602,7 @@
     <footer class="footer">
       <div class="footer-brand">
         <strong>GoodTalk</strong>
-        <span>A calmer way to communicate, guided by AI.</span>
-        <span>© 2026 GoodTalk. All rights reserved.</span>
+        <span>© 2026 Aphelion Software. All rights reserved.</span>
         <a class="launch-badge" href="https://websitelaunches.com/site/good-talk.app" target="_blank" rel="noopener" aria-label="View GoodTalk public launch record">
           <img class="launch-badge-logo" src="https://websitelaunches.com/images/wl_logo.png" alt="" width="24" height="24" loading="lazy">
           <span>
@@ -616,6 +619,7 @@
         <a href="privacy.html">Privacy</a>
         <a href="support.html">Support</a>
         <a href="terms-of-use.html">Terms of Use (EULA)</a>
+        <a href="company/index.html">Our Studio</a>
         <a href="mailto:info@good-talk.app">Info</a>
       </div>
     </footer>

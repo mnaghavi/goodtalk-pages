@@ -199,16 +199,21 @@ if (heroSwitcher) {
   const heroButton = heroSwitcher.querySelector(".hero-phone-switcher");
   let activeHeroScreen = 0;
 
+  const updateHeroScreens = () => {
+    heroScreens.forEach((screen, index) => {
+      const stackPosition = (index - activeHeroScreen + heroScreens.length) % heroScreens.length;
+      screen.classList.toggle("is-active", stackPosition === 0);
+      screen.dataset.stackPosition = String(stackPosition);
+    });
+  };
+
   heroButton?.addEventListener("click", () => {
     activeHeroScreen = (activeHeroScreen + 1) % heroScreens.length;
-    heroScreens.forEach((screen, index) => {
-      screen.classList.toggle("is-active", index === activeHeroScreen);
-    });
-    heroButton.setAttribute(
-      "aria-label",
-      activeHeroScreen === 0 ? "Show guided conversations screen" : "Show hard conversations screen"
-    );
+    updateHeroScreens();
+    heroButton.setAttribute("aria-label", "Show the next GoodTalk screen");
   });
+
+  updateHeroScreens();
 }
 
 const page = document.body.dataset.page;
