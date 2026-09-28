@@ -247,6 +247,11 @@ body[data-theme="dark"] .review-rating label {
   accent-color: var(--accent);
 }
 
+.review-turnstile {
+  min-height: 65px;
+  margin-top: 20px;
+}
+
 .review-submit-row {
   display: flex;
   align-items: center;

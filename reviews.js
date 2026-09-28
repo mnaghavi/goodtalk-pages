@@ -109,8 +109,14 @@ reviewForm.addEventListener('submit', async (event) => {
     stars: Number(fields.get('stars')),
     text: String(fields.get('text') || '').trim(),
     consent: fields.get('consent') === 'on',
-    company: String(fields.get('company') || '')
+    company: String(fields.get('company') || ''),
+    turnstileToken: String(fields.get('cf-turnstile-response') || '')
   };
+  if (!submission.turnstileToken) {
+    formStatus.dataset.state = 'error';
+    formStatus.textContent = 'Please complete the verification before sending your review.';
+    return;
+  }
   button.disabled = true;
   formStatus.dataset.state = '';
   formStatus.textContent = 'Sending your review…';
@@ -122,6 +128,8 @@ reviewForm.addEventListener('submit', async (event) => {
     });
     if (!response.ok) {
       if (response.status === 429) throw new Error('Too many attempts. Please try again later.');
+      if (response.status === 403) throw new Error('Verification expired or failed. Please try again.');
+      if (response.status === 503) throw new Error('Verification is temporarily unavailable. Please try again later.');
       if (response.status === 400) throw new Error('Please check the rating, name, review and permission box.');
       throw new Error('Your review could not be sent. Please try again later.');
     }
@@ -132,6 +140,7 @@ reviewForm.addEventListener('submit', async (event) => {
     formStatus.dataset.state = 'error';
     formStatus.textContent = error instanceof Error ? error.message : 'Your review could not be sent. Please try again later.';
   } finally {
+    window.turnstile?.reset();
     button.disabled = false;
   }
 });
