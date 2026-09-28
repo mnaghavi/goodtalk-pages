@@ -24,6 +24,7 @@ If you need help, have questions, or want to report an issue, contact:
 
 - `index.html` — marketing landing page
 - `support.html` — public support page
+- `reviews.html` — public reviews and submission page (backed by the GoodTalk Firebase `websiteReviews` function)
 - `privacy.html` — privacy policy and overview
 - `terms-of-use.html` — terms of use
 - `assets/` — app icon, screenshots, and device-frame assets

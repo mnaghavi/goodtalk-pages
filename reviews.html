@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src https://northamerica-northeast2-goodtalk-prod.cloudfunctions.net; object-src 'none'; base-uri 'self'; form-action 'self'" />
+  <title>Reviews | GoodTalk</title>
+  <meta name="description" content="Read what people say about GoodTalk and share your own experience." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#f5f7fb" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0d1118" media="(prefers-color-scheme: dark)" />
+  <link rel="canonical" href="https://good-talk.app/reviews.html" />
+  <link rel="icon" type="image/png" href="assets/app-icon.png" />
+  <link rel="apple-touch-icon" href="assets/app-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GoodTalk" />
+  <meta property="og:title" content="Reviews | GoodTalk" />
+  <meta property="og:description" content="Read what people say about GoodTalk and share your own experience." />
+  <meta property="og:url" content="https://good-talk.app/reviews.html" />
+  <meta property="og:image" content="https://good-talk.app/assets/goodtalk-social-card-v2.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="reviews.css" />
+</head>
+<body data-page="reviews">
+  <main class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="GoodTalk home">
+        <span class="brand-mark"><img class="brand-icon" src="assets/goodtalk-logo.png" alt="" /></span>
+        <span class="brand-copy"><span class="brand-title">GoodTalk</span><span class="brand-subtitle">Say It Right the First Time!</span></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="topbar-menu-reviews" aria-label="Open navigation"><span></span><span></span></button>
+      <div class="topbar-menu" id="topbar-menu-reviews">
+        <nav class="nav-links" aria-label="Primary">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="reviews.html" aria-current="page">Reviews</a>
+          <a class="nav-link" href="company/index.html">Our Studio</a>
+          <a class="nav-link" href="privacy.html">Privacy</a>
+          <a class="nav-link" href="support.html">Support</a>
+        </nav>
+        <div class="topbar-actions">
+          <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Toggle color theme"><span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-icon theme-toggle-icon-sun">☀</span><span class="theme-toggle-thumb"></span><span class="theme-toggle-icon theme-toggle-icon-moon">☾</span></span></button>
+          <a class="button button-primary topbar-cta" href="https://apps.apple.com/us/app/goodtalk/id6760621856">Try GoodTalk free</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="reviews-main" id="share-review" aria-labelledby="review-page-heading">
+      <div class="reviews-intro">
+        <span class="reviews-kicker">GOODTALK REVIEWS</span>
+        <h1 id="review-page-heading">Your story,<br /><em>in your words.</em></h1>
+        <p>Share what GoodTalk has been like for you. Your experience could help someone else decide to try it.</p>
+        <a class="reviews-jump" href="#review-list-heading">Read reviews <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="review-form-card">
+        <h2 id="review-form-heading">Write a review</h2>
+        <form id="review-form" novalidate>
+          <fieldset class="review-rating-field">
+            <legend>Your rating <span aria-hidden="true">*</span></legend>
+            <div class="review-rating" aria-label="Choose a rating from one to five stars">
+              <input id="rating-1" type="radio" name="stars" value="1" required /><label for="rating-1" title="1 star"><span class="sr-only">1 star</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.7 2.88 5.83 6.44.94-4.66 4.54 1.1 6.42L12 17.4l-5.76 3.03 1.1-6.42-4.66-4.54 6.44-.94L12 2.7Z" /></svg></label>
+              <input id="rating-2" type="radio" name="stars" value="2" /><label for="rating-2" title="2 stars"><span class="sr-only">2 stars</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.7 2.88 5.83 6.44.94-4.66 4.54 1.1 6.42L12 17.4l-5.76 3.03 1.1-6.42-4.66-4.54 6.44-.94L12 2.7Z" /></svg></label>
+              <input id="rating-3" type="radio" name="stars" value="3" /><label for="rating-3" title="3 stars"><span class="sr-only">3 stars</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.7 2.88 5.83 6.44.94-4.66 4.54 1.1 6.42L12 17.4l-5.76 3.03 1.1-6.42-4.66-4.54 6.44-.94L12 2.7Z" /></svg></label>
+              <input id="rating-4" type="radio" name="stars" value="4" /><label for="rating-4" title="4 stars"><span class="sr-only">4 stars</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.7 2.88 5.83 6.44.94-4.66 4.54 1.1 6.42L12 17.4l-5.76 3.03 1.1-6.42-4.66-4.54 6.44-.94L12 2.7Z" /></svg></label>
+              <input id="rating-5" type="radio" name="stars" value="5" /><label for="rating-5" title="5 stars"><span class="sr-only">5 stars</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.7 2.88 5.83 6.44.94-4.66 4.54 1.1 6.42L12 17.4l-5.76 3.03 1.1-6.42-4.66-4.54 6.44-.94L12 2.7Z" /></svg></label>
+            </div>
+          </fieldset>
+          <label class="review-field" for="review-name">Name to display <span aria-hidden="true">*</span><input id="review-name" name="name" type="text" autocomplete="name" maxlength="50" placeholder="Your first name or a nickname" required /></label>
+          <label class="review-field" for="review-text">Your review <span aria-hidden="true">*</span><textarea id="review-text" name="text" rows="5" maxlength="1000" placeholder="What has GoodTalk been like for you?" required></textarea></label>
+          <p class="review-field-hint">Please leave out names and details from private conversations.</p>
+          <div class="review-trap" aria-hidden="true"><label for="review-company">Company</label><input id="review-company" name="company" type="text" tabindex="-1" autocomplete="off" /></div>
+          <label class="review-consent"><input id="review-consent" name="consent" type="checkbox" required /><span>I agree that GoodTalk may publicly share my display name, star rating, and review after approval.</span></label>
+          <div class="review-submit-row"><button class="button button-primary" type="submit">Send review <span aria-hidden="true">↗</span></button><span>Reviews are checked before they appear.</span></div>
+          <p id="review-form-status" class="review-form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="reviews-content" aria-labelledby="review-list-heading">
+      <div class="reviews-section-head">
+        <div><span class="reviews-kicker">SHARED EXPERIENCES</span><h2 id="review-list-heading">What people are saying</h2></div>
+      </div>
+      <div id="reviews-status" class="reviews-status" role="status" aria-live="polite">Loading reviews…</div>
+      <div id="reviews-list" class="reviews-grid"></div>
+      <button id="reviews-more" class="button button-secondary reviews-more" type="button" hidden>See more reviews</button>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-brand"><strong>GoodTalk</strong><span>© 2026 Aphelion Software. All rights reserved.</span></div>
+      <div class="footer-links"><a href="index.html">Home</a><a href="reviews.html">Reviews</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a><a href="terms-of-use.html">Terms of Use (EULA)</a><a href="company/index.html">Our Studio</a><a href="mailto:info@good-talk.app">Info</a></div>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+  <script src="reviews.js" defer></script>
+</body>
+</html>
