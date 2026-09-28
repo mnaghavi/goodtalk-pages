@@ -28,6 +28,7 @@ if (themeToggles.length) {
 const topbar = document.querySelector(".topbar");
 const menuToggle = document.querySelector(".menu-toggle");
 const topbarMenu = document.querySelector(".topbar-menu");
+const mobileMenuMedia = window.matchMedia("(max-width: 1120px)");
 const getStickyOffset = () => {
   if (!topbar) {
     return 96;
@@ -53,14 +54,14 @@ if (topbar && menuToggle && topbarMenu) {
 
   topbarMenu.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
-      if (window.innerWidth <= 860) {
+      if (mobileMenuMedia.matches) {
         closeMenu();
       }
     });
   });
 
   document.addEventListener("click", (event) => {
-    if (window.innerWidth > 860) {
+    if (!mobileMenuMedia.matches) {
       return;
     }
 
@@ -71,7 +72,7 @@ if (topbar && menuToggle && topbarMenu) {
 
   window.addEventListener("resize", () => {
     document.body.style.setProperty("--sticky-offset", `${getStickyOffset()}px`);
-    if (window.innerWidth > 860) {
+    if (!mobileMenuMedia.matches) {
       closeMenu();
     }
   });

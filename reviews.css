@@ -148,24 +148,25 @@ body[data-page="reviews"] .site-shell {
   transition: fill 0.15s ease, stroke 0.15s ease, transform 0.15s ease;
 }
 
-.review-rating :where(input:checked + label, label:has(~ input:checked)) svg,
-.review-rating :where(label:hover, label:has(~ label:hover)) svg {
+.review-rating :is(input:checked + label, label:has(~ input:checked)) svg {
   fill: #f5b940;
   stroke: #cc8d21;
 }
 
-.review-rating:has(label:hover) label svg {
-  fill: transparent;
-  stroke: currentColor;
-}
+@media (hover: hover) {
+  .review-rating:has(label:hover) label svg {
+    fill: transparent;
+    stroke: currentColor;
+  }
 
-.review-rating:has(label:hover) :is(label:hover, label:has(~ label:hover)) svg {
-  fill: #f5b940;
-  stroke: #cc8d21;
-}
+  .review-rating:has(label:hover) :is(label:hover, label:has(~ label:hover)) svg {
+    fill: #f5b940;
+    stroke: #cc8d21;
+  }
 
-.review-rating label:hover svg {
-  transform: scale(1.08);
+  .review-rating label:hover svg {
+    transform: scale(1.08);
+  }
 }
 
 body[data-theme="dark"] .review-rating label {
