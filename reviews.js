@@ -23,7 +23,8 @@ function renderTurnstile() {
       sitekey: turnstileContainer.dataset.sitekey,
       action: 'website_review',
       theme,
-      size: 'flexible'
+      size: 'flexible',
+      appearance: 'interaction-only'
     });
     turnstileTheme = theme;
   } catch {

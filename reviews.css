@@ -248,8 +248,7 @@ body[data-theme="dark"] .review-rating label {
 }
 
 .review-turnstile {
-  min-height: 65px;
-  margin-top: 32px;
+  margin-top: 28px;
 }
 
 .review-submit-row {
@@ -257,7 +256,7 @@ body[data-theme="dark"] .review-rating label {
   align-items: center;
   flex-wrap: wrap;
   gap: 12px 16px;
-  margin-top: 22px;
+  margin-top: 10px;
 }
 
 .review-submit-row .button {
