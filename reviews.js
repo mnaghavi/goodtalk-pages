@@ -4,8 +4,44 @@ const reviewsStatus = document.getElementById('reviews-status');
 const reviewsMore = document.getElementById('reviews-more');
 const reviewForm = document.getElementById('review-form');
 const formStatus = document.getElementById('review-form-status');
+const turnstileContainer = document.getElementById('review-turnstile');
 let nextCursor = null;
+let turnstileWidgetId = null;
+let turnstileTheme = null;
 const starPath = 'm12 2.7 2.88 5.83 6.44.94-4.66 4.54 1.1 6.42L12 17.4l-5.76 3.03 1.1-6.42-4.66-4.54 6.44-.94L12 2.7Z';
+
+function renderTurnstile() {
+  if (!window.turnstile) return;
+  const theme = document.body.dataset.theme === 'dark' ? 'dark' : 'light';
+  if (turnstileWidgetId !== null && turnstileTheme === theme) return;
+  if (turnstileWidgetId !== null) {
+    window.turnstile.remove(turnstileWidgetId);
+    turnstileWidgetId = null;
+  }
+  try {
+    turnstileWidgetId = window.turnstile.render(turnstileContainer, {
+      sitekey: turnstileContainer.dataset.sitekey,
+      action: 'website_review',
+      theme,
+      size: 'flexible'
+    });
+    turnstileTheme = theme;
+  } catch {
+    formStatus.dataset.state = 'error';
+    formStatus.textContent = 'Verification could not load. Please refresh the page.';
+  }
+}
+
+new MutationObserver(renderTurnstile).observe(document.body, { attributes: true, attributeFilter: ['data-theme'] });
+const turnstileScript = document.createElement('script');
+turnstileScript.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+turnstileScript.async = true;
+turnstileScript.onload = renderTurnstile;
+turnstileScript.onerror = () => {
+  formStatus.dataset.state = 'error';
+  formStatus.textContent = 'Verification could not load. Please refresh the page.';
+};
+document.head.append(turnstileScript);
 
 function createReviewCard(review) {
   const card = document.createElement('article');
@@ -140,7 +176,7 @@ reviewForm.addEventListener('submit', async (event) => {
     formStatus.dataset.state = 'error';
     formStatus.textContent = error instanceof Error ? error.message : 'Your review could not be sent. Please try again later.';
   } finally {
-    window.turnstile?.reset();
+    if (turnstileWidgetId !== null) window.turnstile?.reset(turnstileWidgetId);
     button.disabled = false;
   }
 });

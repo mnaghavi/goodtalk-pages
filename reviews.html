@@ -20,7 +20,6 @@
   <meta property="og:image" content="https://good-talk.app/assets/goodtalk-social-card-v2.png" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="reviews.css" />
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body data-page="reviews">
   <main class="site-shell">
@@ -70,7 +69,7 @@
           <p class="review-field-hint">Please leave out names and details from private conversations.</p>
           <div class="review-trap" aria-hidden="true"><label for="review-company">Company</label><input id="review-company" name="company" type="text" tabindex="-1" autocomplete="off" /></div>
           <label class="review-consent"><input id="review-consent" name="consent" type="checkbox" required /><span>I agree that GoodTalk may publicly share my display name, star rating, and review after approval.</span></label>
-          <div class="review-turnstile cf-turnstile" data-sitekey="0x4AAAAAAFH5_SpcJh4MRXJ9" data-action="website_review" data-theme="auto" data-size="flexible"></div>
+          <div id="review-turnstile" class="review-turnstile" data-sitekey="0x4AAAAAAFH5_SpcJh4MRXJ9"></div>
           <div class="review-submit-row"><button class="button button-primary" type="submit">Send review <span aria-hidden="true">↗</span></button><span>Reviews are checked before they appear.</span></div>
           <p id="review-form-status" class="review-form-status" role="status" aria-live="polite"></p>
         </form>
