@@ -17,6 +17,7 @@ function renderTurnstile() {
   if (turnstileWidgetId !== null) {
     window.turnstile.remove(turnstileWidgetId);
     turnstileWidgetId = null;
+    turnstileContainer.classList.remove('is-interactive');
   }
   try {
     turnstileWidgetId = window.turnstile.render(turnstileContainer, {
@@ -24,7 +25,9 @@ function renderTurnstile() {
       action: 'website_review',
       theme,
       size: 'flexible',
-      appearance: 'interaction-only'
+      appearance: 'interaction-only',
+      'before-interactive-callback': () => turnstileContainer.classList.add('is-interactive'),
+      'after-interactive-callback': () => turnstileContainer.classList.remove('is-interactive')
     });
     turnstileTheme = theme;
   } catch {
